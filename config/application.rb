@@ -32,4 +32,15 @@ module FlowSample
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
   end
+
+# 不要ファイルの自動生成制御
+  module YourApp
+    class Application < Rails::Application
+      config.generators do |g|
+        g.assets     false
+        g.helper     false
+      end
+    end
+  end
+
 end
